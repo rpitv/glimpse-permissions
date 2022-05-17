@@ -1,0 +1,45 @@
+{
+  "name": "@rpitv/glimpse-permissions",
+  "version": "0.1.0",
+  "description": "Core permissions system for RPI TV Glimpse applications",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepare": "husky install",
+    "test": "npx jest",
+    "lint": "eslint . --ext .ts --cache && npx prettier --check .",
+    "build": "tsc",
+    "fix": "eslint . --ext .ts --cache --fix && npx prettier --write . --ignore-unknown"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": "^12 || ^14 || ^16 || ^18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpitv/glimpse-permissions.git"
+  },
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/rpitv/glimpse-permissions/issues"
+  },
+  "homepage": "https://rpi.tv/",
+  "devDependencies": {
+    "@types/jest": "^27.5.1",
+    "@types/node": "^17.0.31",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.6.2",
+    "ts-jest": "^28.0.2",
+    "typescript": "^4.6.4"
+  },
+  "lint-staged": {
+    "**/*": "npm run fix"
+  }
+}
