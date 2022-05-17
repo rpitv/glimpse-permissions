@@ -1,4 +1,4 @@
-name: Unit Test Suite
+name: Unit Tests
 
 on:
   push:
