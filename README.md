@@ -1,6 +1,6 @@
 <img src="rpitv_glimpse_logo.png" alt="RPI TV Glimpse logo" width="400">
 
-# RPI TV Glimpse Permissions &middot; [![Build Status](https://github.com/rpitv/glimpse-permissions/actions/workflows/node.js.yml/badge.svg)](https://github.com/rpitv/glimpse-permissions/actions/workflows/node.js.yml) [![codecov](https://codecov.io/gh/rpitv/glimpse-permissions/branch/dev/graph/badge.svg?token=8HY7DBAX16)](https://codecov.io/gh/rpitv/glimpse-permissions) [![GitHub license](https://img.shields.io/github/license/rpitv/glimpse-permissions)](https://github.com/rpitv/glimpse-permissions/blob/dev/LICENSE)
+# RPI TV Glimpse Permissions &middot; [![Unit Tests](https://github.com/rpitv/glimpse-permissions/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/rpitv/glimpse-permissions/actions/workflows/unit-tests.yml) [![codecov](https://codecov.io/gh/rpitv/glimpse-permissions/branch/dev/graph/badge.svg?token=8HY7DBAX16)](https://codecov.io/gh/rpitv/glimpse-permissions) [![GitHub license](https://img.shields.io/github/license/rpitv/glimpse-permissions)](https://github.com/rpitv/glimpse-permissions/blob/dev/LICENSE)
 
 > Access control system for RPI TV Glimpse applications and services.
 
