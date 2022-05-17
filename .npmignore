@@ -1,0 +1,13 @@
+.github
+.husky
+node_modules
+src
+.editorconfig
+.eslintrc
+.gitignore
+.npmignore
+.nvmrc
+.prettierignore
+.prettierrc.json
+jest.config.js
+tsconfig.json
