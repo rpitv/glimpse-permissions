@@ -1,17 +1,36 @@
-name: Unit Tests
+name: Test Suite
 
 on:
   push:
     branches: [release, dev]
   pull_request:
     branches: [release, dev]
-  workflow_call:
 
 jobs:
+  # Analyze code for vulnerabilities
   analyze:
-    name: CodeQL Scan
-    uses: ./.github/workflows/codeql-scan.yml
-  test:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["typescript"]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+  # Run unit tests
+  unit-test:
     name: Unit Tests
     runs-on: ubuntu-latest
 

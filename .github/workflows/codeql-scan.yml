@@ -1,11 +1,11 @@
-name: "CodeQL Analysis"
+name: "Scheduled CodeQL Analysis"
 
 on:
   schedule:
     - cron: "45 20 * * 5"
-  workflow_call:
 
 jobs:
+  # Analyze code for vulnerabilities
   analyze:
     name: Analyze
     runs-on: ubuntu-latest

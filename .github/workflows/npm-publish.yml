@@ -8,10 +8,56 @@ on:
     types: [created]
 
 jobs:
-  test:
-    name: Unit Tests
-    uses: ./.github/workflows/unit-tests.yml
+  # Analyze code for vulnerabilities
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
 
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ "typescript" ]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+  # Run unit tests
+  unit-test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 12.x, 14.x, 16.x, 18.x ]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build --if-present
+      - run: npm test
+      - name: Codecov
+        uses: codecov/codecov-action@v2.1.0
+        with:
+          flags: unittests
+          files: ./coverage/coverage-final.json
+          fail_ci_if_error: true
+          verbose: true
+  # Publish to NPM
   publish-npm:
     name: Publish to NPM
     needs: test
