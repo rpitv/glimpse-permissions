@@ -1,6 +1,6 @@
 {
   "name": "@rpitv/glimpse-permissions",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Core permissions system for RPI TV Glimpse applications",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
