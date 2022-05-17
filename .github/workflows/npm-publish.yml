@@ -11,8 +11,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 12
       - run: npm ci
@@ -21,15 +21,14 @@ jobs:
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
-    environment: Publish
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-          scope: "@rpitv"
       - run: npm ci
-      - run: echo "//registry.npmjs.org:_authToken=${{ secrets.npm_token }}" > ~/.npmrc
       - run: npm run build
       - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
