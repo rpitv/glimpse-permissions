@@ -75,7 +75,7 @@ The test suite can be ran with `npm run test`. The test suite is also ran during
 
 This project follows the guidelines found here: https://github.com/elsewhencode/project-guidelines
 
-The main branch is the development branch. When it's time for a release, `dev` is merged into `release`.
+The main branch is the development branch. When it's time for a release, a release on GitHub is made and auto-published to NPM.
 
 Code style is enforced using ESLint. Continuous Integration runs the linter before unit tests, however you may also run the linter yourself using:
 
