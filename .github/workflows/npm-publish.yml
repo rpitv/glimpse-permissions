@@ -8,18 +8,13 @@ on:
     types: [created]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 12
-      - run: npm ci
-      - run: npm test
+  test:
+    name: Unit Tests
+    uses: ./.github/workflows/unit-tests.yml
 
   publish-npm:
-    needs: build
+    name: Publish to NPM
+    needs: test
     runs-on: ubuntu-latest
     environment: Publish
     steps:
