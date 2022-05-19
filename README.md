@@ -404,6 +404,43 @@ Parameters:
 
 Returns the PermissionState value returned from evaluate() on the tree on the top of the stack. If the tree on the top of the stack returns NONE, then the next tree in the stack is tried. If none of the trees in the stack have a state for the given scope, then this returns NONE.
 
+### AccessDeniedError
+
+An extension of Error specifically for when someone tries to use a permission scope they don't have permission for.
+
+```ts
+constructor();
+constructor(scope: string);
+constructor(scope: PermissionScope)
+```
+Parameters:
+
+- `scope?: string|PermissionScope` Scope which was requested, but the user did not have permission for. If undefined or an empty string are passed, the error message is generalized for multiple permissions (i.e., "Missing required permissions")
+
+### PermissionTools
+
+This file contains a number of methods or variables which may be helpful when dealing with this library.
+
+```ts
+globalStack: PermissionTreeStack;
+```
+
+A global PermissionTreeStack which can be used in applications
+
+```ts
+function formatScope(scope: string, ...vars: any[]): string;
+function formatScope(scope: PermissionScope, ...vars: any[]): PermissionScope;
+```
+
+Format a PermissionScope with variables in it. Technically can format any string, however it was designed and intended specifically for PermissionScopes.
+
+Parameters:
+
+- `scope: string | PermissionScope` Scope to format. This parameter is not modified in place if a PermissionScpoe is passed. Instead, a new instance of PermissionScope is returned. Variable locations are marked within this scope by a dollar sign ("$") followed by the variable number (one-indexed). As an example, $2 would be replaced by the second variable passed to this method (not including the scope itself). If the PermissionScope contains more variable placeholders than passed, the excess will remain as-is.
+- `vars: any[]` Variables to be inserted into the scope. Any variables are valid, but non-string variables will be stringified in the process (via toString()). Any instance of "$no" in the string, where "no" is an integer greater than 0, will be replaced by the corresponding variable passed here. If a variable is passed but no placeholder exists for it, nothing will happen to that placeholder. Similarly, if a placeholder exists for a variable but not enough variables were passed, nothing will happen to that placeholder. No more than 9 variables should be passed, or else behavior is undefined.
+
+Returns a new, updated PermissionScope if a PermissionScope was originally passed in. If a string was passed in, then a new string is returned. The returned value is completely disconnected from the scope that was passed, so modifications to one will not change the other (particularly regarding PermissionScopes).
+
 ## Licensing
 
 [This project is licensed under the GPL 3.0 license.](./LICENSE)
