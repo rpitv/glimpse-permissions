@@ -413,6 +413,7 @@ constructor();
 constructor(scope: string);
 constructor(scope: PermissionScope)
 ```
+
 Parameters:
 
 - `scope?: string|PermissionScope` Scope which was requested, but the user did not have permission for. If undefined or an empty string are passed, the error message is generalized for multiple permissions (i.e., "Missing required permissions")
