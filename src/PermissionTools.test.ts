@@ -1,8 +1,8 @@
 import { assertPermission, formatScope, globalStack } from "./PermissionTools";
-import { PermissionScope } from "./PermissionScope";
-import { PermissionTree } from "./PermissionTree";
-import { Permission } from "./Permission";
-import { AccessDeniedError } from "./AccessDeniedError";
+import { PermissionScope } from "./classes/PermissionScope";
+import { PermissionTree } from "./classes/PermissionTree";
+import { Permission } from "./classes/Permission";
+import { AccessDeniedError } from "./classes/AccessDeniedError";
 
 describe("formatScope", () => {
     it("accepts strings as the first argument", () => {

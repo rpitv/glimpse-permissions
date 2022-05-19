@@ -1,7 +1,7 @@
-import { PermissionTreeStack } from "./PermissionTreeStack";
-import { PermissionState } from "./PermissionState";
-import { PermissionScope } from "./PermissionScope";
-import { AccessDeniedError } from "./AccessDeniedError";
+import { PermissionTreeStack } from "./classes/PermissionTreeStack";
+import { PermissionState } from "./classes/PermissionState";
+import { PermissionScope } from "./classes/PermissionScope";
+import { AccessDeniedError } from "./classes/AccessDeniedError";
 
 /**
  * A global PermissionTreeStack which can be used in applications
