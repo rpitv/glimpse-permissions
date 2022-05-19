@@ -15,5 +15,5 @@ export {
     PermissionTreeStack,
     globalStack,
     formatScope,
-    assertPermission
+    assertPermission,
 };
