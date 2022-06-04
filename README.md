@@ -1,3 +1,9 @@
+# Archived
+
+While this was a great prototype and learning tool, it currently makes more sense to use an already-existing library than to create our own.
+
+We are currently opting for https://casl.js.org/. Another option that was researched was https://casbin.org/ (note, this has support for many languages, while casl only supports JavaScript).
+
 <img src="rpitv_glimpse_logo.png" alt="RPI TV Glimpse logo" width="400">
 
 # RPI TV Glimpse Permissions &middot; [![Unit Tests](https://github.com/rpitv/glimpse-permissions/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/rpitv/glimpse-permissions/actions/workflows/unit-tests.yml) [![codecov](https://codecov.io/gh/rpitv/glimpse-permissions/branch/dev/graph/badge.svg?token=8HY7DBAX16)](https://codecov.io/gh/rpitv/glimpse-permissions) [![GitHub license](https://img.shields.io/github/license/rpitv/glimpse-permissions)](https://github.com/rpitv/glimpse-permissions/blob/dev/LICENSE)
